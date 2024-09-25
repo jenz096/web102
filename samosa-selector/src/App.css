@@ -40,3 +40,32 @@
 .read-the-docs {
   color: #888;
 }
+.samosa {
+  height: 15em;
+  padding: 1.5em;
+  margin: 0 auto;
+  text-align: center;
+}
+.container{
+  margin-top: 50px;
+  display: flex;
+}
+.upgrade {
+  border: 1px solid rgba(153, 153, 153, 0.497);
+  border-radius: 5px; 
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  margin-right: 25px;
+  width: 200px;
+  line-height: 0.5;
+}
+.samosa:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.samosa:active {
+  transform: scale(0.95);
+}
