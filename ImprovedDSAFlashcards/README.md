@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 
-https://github.com/user-attachments/assets/ff5ff96b-697f-4a55-a42b-d7ae30213581
+https://imgur.com/a/SBqkTl5
 
 
 
