@@ -25,9 +25,10 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+![4EC79A29-D0AD-4A95-9C4C-306E6D0CABB7_1_102_o](https://github.com/user-attachments/assets/10f189e1-2df6-4436-ac02-71b81699e06a)
 
-https://imgur.com/a/SBqkTl5
 
+**GIF is too big so use URL in submission.
 
 
 
