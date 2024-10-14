@@ -54,11 +54,17 @@ const CatAPIComponent = () => {
     }
   };
   
-  // Function to add attributes to the ban list
-  const addToBanList = (attribute) => {
-    if (!banList.includes(attribute)) {
-      setBanList([...banList, attribute]);
-    }
+  // Function to add/remove attributes from the ban list
+  const toggleBanList = (attribute) => {
+    setBanList((prevBanList) => {
+      if (prevBanList.includes(attribute)) {
+        // Remove the attribute if it is already in the ban list
+        return prevBanList.filter(item => item !== attribute);
+      } else {
+        // Add the attribute if it is not in the ban list
+        return [...prevBanList, attribute];
+      }
+    });
   };
   
   useEffect(() => {
@@ -84,7 +90,7 @@ const CatAPIComponent = () => {
             Breed:{" "}
             <span
               style={{ cursor: "pointer", textDecoration: "underline" }}
-              onClick={() => addToBanList(catData.breedName)}
+              onClick={() => toggleBanList(catData.breedName)}
             >
               {catData.breedName}
             </span>
@@ -93,7 +99,7 @@ const CatAPIComponent = () => {
             Energy Level:{" "}
             <span
               style={{ cursor: "pointer", textDecoration: "underline" }}
-              onClick={() => addToBanList(catData.energyLevel)}
+              onClick={() => toggleBanList(catData.energyLevel)}
             >
               {catData.energyLevel}
             </span>
@@ -102,7 +108,7 @@ const CatAPIComponent = () => {
             Hypoallergenic:{" "}
             <span
               style={{ cursor: "pointer", textDecoration: "underline" }}
-              onClick={() => addToBanList(catData.hypoallergenic)}
+              onClick={() => toggleBanList(catData.hypoallergenic)}
             >
               {catData.hypoallergenic}
             </span>
@@ -111,7 +117,7 @@ const CatAPIComponent = () => {
             Life Span:{" "} 
             <span
               style={{ cursor: "pointer", textDecoration: "underline" }}
-              onClick={() => addToBanList(catData.lifeSpan)}
+              onClick={() => toggleBanList(catData.lifeSpan)}
             >
               {catData.lifeSpan}
             </span>
@@ -124,13 +130,14 @@ const CatAPIComponent = () => {
         <h3>Banned Attributes:</h3>
         <ul>
           {banList.map((attribute, index) => (
-            <li key={index}>{attribute}</li>
+            <li key={index} onClick={() => toggleBanList(attribute)} style={{ cursor: "pointer", textDecoration: "underline" }}>
+              {attribute}
+            </li>
           ))}
         </ul>
       </div>
     </div>
   );
-  };
-  
-  export default CatAPIComponent;
-  
+};
+
+export default CatAPIComponent;
