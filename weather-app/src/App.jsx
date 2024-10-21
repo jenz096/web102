@@ -26,6 +26,11 @@ const App = () => {
   const [error, setError] = useState(null);
   const [cityInput, setCityInput] = useState('');
 
+  // State for filters
+  const [minTemp, setMinTemp] = useState(''); // Minimum temperature filter
+  const [maxTemp, setMaxTemp] = useState(''); // Maximum temperature filter
+  const [selectedCondition, setSelectedCondition] = useState(''); // Weather condition filter
+
   const API_KEY = '142e7b22faa54d44a34221223242110'; // Replace with your WeatherAPI key
 
   useEffect(() => {
@@ -86,6 +91,19 @@ const App = () => {
 
   const quartilesAndRange = calculateQuartilesAndRange(temperatures);
 
+  // Filtered data based on temperature range and weather condition
+  const filteredData = data.filter((cityData) => {
+    const temp = cityData.current.temp_c;
+    const condition = cityData.current.condition.text.toLowerCase();
+    const isTempInRange =
+      (!minTemp || temp >= parseFloat(minTemp)) &&
+      (!maxTemp || temp <= parseFloat(maxTemp));
+    const isConditionMatch =
+      !selectedCondition || condition === selectedCondition.toLowerCase();
+
+    return isTempInRange && isConditionMatch;
+  });
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -106,6 +124,40 @@ const App = () => {
             <button type="submit">Add City</button>
           </form>
 
+          {/* Filters */}
+          <div>
+            <h4>Filter by Temperature</h4>
+            <label>
+              Min Temp (°C):
+              <input
+                type="number"
+                value={minTemp}
+                onChange={(e) => setMinTemp(e.target.value)}
+              />
+            </label>
+            <label>
+              Max Temp (°C):
+              <input
+                type="number"
+                value={maxTemp}
+                onChange={(e) => setMaxTemp(e.target.value)}
+              />
+            </label>
+
+            <h4>Filter by Weather Condition</h4>
+            <select
+              value={selectedCondition}
+              onChange={(e) => setSelectedCondition(e.target.value)}
+            >
+              <option value="">All Conditions</option>
+              <option value="Sunny">Sunny</option>
+              <option value="Cloudy">Cloudy</option>
+              <option value="Rain">Rain</option>
+              <option value="Mist">Mist</option>
+              <option value="Clear">Clear</option>
+            </select>
+          </div>
+
           {/* Display Summary Statistics */}
           <div>
             <h3>Summary Statistics:</h3>
@@ -123,7 +175,7 @@ const App = () => {
 
           {/* Display Weather Data for All Cities */}
           <div className="card-section">
-            {data.map((cityData, index) => (
+            {filteredData.map((cityData, index) => (
               <div key={index}>
                 <h3>{cityData.location.name}</h3>
                 <div>
