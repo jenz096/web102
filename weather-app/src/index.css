@@ -1,0 +1,98 @@
+/* index.css or App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1b2f;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background-color: #24244a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+  display: flex;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.nav-bar {
+  width: 200px;
+  background-color: #303053;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-bar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-bar li {
+  margin: 15px 0;
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+}
+
+.dashboard {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+/* Main layout for card section */
+.card-section {
+  display: flex;
+  flex-wrap: wrap; /* Ensure cards wrap if there isn’t enough space */
+  gap: 20px; /* Add space between the cards */
+  justify-content: center; /* Center the cards horizontally */
+  margin-top: 20px;
+}
+
+/* Styling for individual cards */
+.card {
+  background-color: #3e3e6b;
+  padding: 30px 20px; /* Increase padding for better spacing */
+  border-radius: 10px;
+  min-width: 200px; /* Ensure cards have a minimum width */
+  width: 250px; /* Fix the card width */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+}
+
+/* Text styling inside the cards */
+.card h2 {
+  font-size: 2rem; /* Larger font size for value */
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.card p {
+  font-size: 1.2rem; /* Larger font size for description */
+  color: #cfcfcf;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* Full width on small screens */
+  }
+}
