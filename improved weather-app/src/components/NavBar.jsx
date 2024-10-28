@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
     <div className="navbar">
-      <Link to="/" className="nav-link">Home</Link> 
+      <ul>
+      <Link to="/" className="nav-link">Home</Link>
+      </ul>
     </div>
+    
   );
 };
 

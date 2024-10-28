@@ -113,126 +113,128 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        <Header />
-        <Routes>
-          {/* Main dashboard route */}
-          <Route
-            path="/"
-            element={
-              <div className="main-content">
-                <NavBar /> 
-                <div className="dashboard">
-                  {/* Add City Form */}
-                  <form onSubmit={handleAddCity}>
-                    <input
-                      type="text"
-                      value={cityInput}
-                      onChange={(e) => setCityInput(e.target.value)}
-                      placeholder="Enter city name"
-                    />
-                    <button type="submit">Add City</button>
-                  </form>
-  
-                  {/* Filters */}
-                  <div>
-                    <h4>Filter by Temperature</h4>
-                    <label>
-                      Min Temp (°C):
+      <Header />
+      <div className="sidebar-wrapper">
+          <NavBar />
+        </div>
+          <div className="main-content">
+            <Routes>
+              {/* Main dashboard route */}
+              <Route
+                path="/"
+                element={
+                  <div className="dashboard">
+                    <form onSubmit={handleAddCity}>
                       <input
-                        type="number"
-                        value={minTemp}
-                        onChange={(e) => setMinTemp(e.target.value)}
+                        type="text"
+                        value={cityInput}
+                        onChange={(e) => setCityInput(e.target.value)}
+                        placeholder="Enter city name"
                       />
-                    </label>
-                    <label>
-                      Max Temp (°C):
-                      <input
-                        type="number"
-                        value={maxTemp}
-                        onChange={(e) => setMaxTemp(e.target.value)}
-                      />
-                    </label>
-  
-                    <h4>Filter by Weather Condition</h4>
-                    <select
-                      value={selectedCondition}
-                      onChange={(e) => setSelectedCondition(e.target.value)}
-                    >
-                      <option value="">All Conditions</option>
-                      <option value="Sunny">Sunny</option>
-                      <option value="Cloudy">Cloudy</option>
-                      <option value="Rain">Rain</option>
-                      <option value="Mist">Mist</option>
-                      <option value="Clear">Clear</option>
-                    </select>
-                  </div>
-  
-                  {/* Display Summary Statistics */}
-                  <div>
-                    <h3>Summary Statistics:</h3>
-                    <p>Total Cities: {totalCities}</p>
-                    <p>Mean Temperature: {meanTemperature}°C</p>
-                    {quartilesAndRange && (
-                      <>
-                        <p>Q1 (25th percentile): {quartilesAndRange.q1}°C</p>
-                        <p>Q2 (50th percentile - Median): {quartilesAndRange.q2}°C</p>
-                        <p>Q3 (75th percentile): {quartilesAndRange.q3}°C</p>
-                        <p>Temperature Range: {quartilesAndRange.range}°C</p>
-                      </>
-                    )}
-                  </div>
-                  <div className="chart-section">
-                    <TemperatureChart data={filteredData} />
-                  </div>
-  
-                  {/* Display Weather Data for All Cities */}
-                  <div className="card-section">
-                    {filteredData.map((cityData, index) => (
-                      <div key={index}>
-                        <h3>
-                          <Link to={`/city/${cityData.location.name}`}>
-                            {cityData.location.name}
-                          </Link>
-                        </h3>
-                        <div>
-                          <Card
-                            value={`${cityData.current.temp_c}°C`}
-                            description="Current Temperature"
-                          />
-                          <Card
-                            value={cityData.current.condition.text}
-                            description="Weather Condition"
-                          />
-                          <Card
-                            value={`${cityData.current.wind_kph} km/h`}
-                            description="Wind Speed"
-                          />
+                      <button type="submit">Add City</button>
+                    </form>
+
+                    {/* Filters */}
+                    <div>
+                      <h4>Filter by Temperature</h4>
+                      <label>
+                        Min Temp (°C):
+                        <input
+                          type="number"
+                          value={minTemp}
+                          onChange={(e) => setMinTemp(e.target.value)}
+                        />
+                      </label>
+                      <label>
+                        Max Temp (°C):
+                        <input
+                          type="number"
+                          value={maxTemp}
+                          onChange={(e) => setMaxTemp(e.target.value)}
+                        />
+                      </label>
+
+                      <h4>Filter by Weather Condition</h4>
+                      <select
+                        value={selectedCondition}
+                        onChange={(e) => setSelectedCondition(e.target.value)}
+                      >
+                        <option value="">All Conditions</option>
+                        <option value="Sunny">Sunny</option>
+                        <option value="Cloudy">Cloudy</option>
+                        <option value="Rain">Rain</option>
+                        <option value="Mist">Mist</option>
+                        <option value="Clear">Clear</option>
+                      </select>
+                    </div>
+
+                    {/* Display Summary Statistics */}
+                    <div>
+                      <h3>Summary Statistics:</h3>
+                      <p>Total Cities: {totalCities}</p>
+                      <p>Mean Temperature: {meanTemperature}°C</p>
+                      {quartilesAndRange && (
+                        <>
+                          <p>Q1 (25th percentile): {quartilesAndRange.q1}°C</p>
+                          <p>Q2 (50th percentile - Median): {quartilesAndRange.q2}°C</p>
+                          <p>Q3 (75th percentile): {quartilesAndRange.q3}°C</p>
+                          <p>Temperature Range: {quartilesAndRange.range}°C</p>
+                        </>
+                      )}
+                    </div>
+                    <div className="chart-section">
+                      <TemperatureChart data={filteredData} />
+                    </div>
+
+                    {/* Display Weather Data for All Cities */}
+                    <div className="card-section">
+                      {filteredData.map((cityData, index) => (
+                        <div key={index}>
+                          <h3>
+                            <Link to={`/city/${cityData.location.name}`}>
+                              {cityData.location.name}
+                            </Link>
+                          </h3>
+                          <div>
+                            <Card
+                              value={`${cityData.current.temp_c}°C`}
+                              description="Current Temperature"
+                            />
+                            <Card
+                              value={cityData.current.condition.text}
+                              description="Weather Condition"
+                            />
+                            <Card
+                              value={`${cityData.current.wind_kph} km/h`}
+                              description="Wind Speed"
+                            />
+                          </div>
+                          <button onClick={() => handleRemoveCity(cityData.location.name)}>
+                            Remove City
+                          </button>
                         </div>
-                        <button onClick={() => handleRemoveCity(cityData.location.name)}>
-                          Remove City
-                        </button>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
-            }
-          />
-  
-          {/* City Detail route */}
-          <Route
-            path="/city/:cityName"
-            element={
-              <div className="city-detail">
-                <Link to="/">← Back to Home</Link> {/* Back to Home link */}
-                <CityDetail data={data} />
-              </div>
-            }
-          />
-        </Routes>
+                }
+              />
+
+              {/* City Detail route */}
+              <Route
+                path="/city/:cityName"
+                element={
+                  <div className="city-detail">
+                    <Link to="/">← Back to Home</Link> {/* Back to Home link */}
+                    <CityDetail data={data} />
+                  </div>
+                }
+              />
+            </Routes>
+          </div>
+        
       </div>
     </Router>
   );
-  
 };
+
 export default App;
