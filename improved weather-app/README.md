@@ -1,47 +1,39 @@
-# Web Development Project 5 - *WeatherSphere*
-
+# Web Development Project 6 - WorldTemps
 Submitted by: Jenny Zhang
 
-This web app tracks weather conditions for multiple cities in real-time, with detailed stats like temperature, wind speed, and more. 
-Time spent: 3 hours spent in total
+This web app is an improvement on the previous weather app. It adds in graph and links functionality.
+
+Time spent: 4 hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ X] **The list displays a list of data fetched using an API call**
-- [X ] **Data uses the useEffect React hook and async/await syntax**
-- [ X] **The app dashboard includes at least three summary statistics about the data such as**
-  - [X ]  Total number of cities: Displays the total number of cities for which weather data has been fetched.
-          Mean temperature: Calculates and shows the average temperature across all the cities.
-          Temperature quartiles (Q1, Q2/median, Q3): Provides detailed quartile breakdowns for the temperature data, including the 25th percentile (Q1), the median (Q2), and the 75th percentile (Q3).
-          Temperature range: Displays the range between the highest and lowest temperatures across all cities.
+- [X ] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+- [ X] **Clicking on an item in the list view displays more details about it**
+  - [X ] To ensure an accurate grade, your sidebar **must** be viewable when showing the details view in your recording.
+- [X ] **Clicking on an item has a direct, unique link to that item's detail view page**
+  - [ X] To ensure an accurate grade, the URL/address bar of your web browser **must** be viewable in your recording.  
 
-- [X ] **A search bar allows the user to search for an item in the fetched data**
-- [X ] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
 
 The following **optional** features are implemented:
 
-- [x ] Multiple filters can be applied simultaneously
-- [x ] Filters use different input types such as a text input, a selection, or a slider
-- [x ] The user can enter specific bounds for filter values
-
-The following **additional** features are implemented:
-
+- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [ ] The site allows users to toggle between different data visualizations
 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![weather-app](https://github.com/user-attachments/assets/fce85a81-2a69-4b56-9954-828dc2c6d9c7)
+![project6](https://github.com/user-attachments/assets/7d0e3e94-c552-40cb-9b1f-8121a54e2cba)
 
-[ScreenToGif](https://www.screentogif.com/) for Windows
 
+GIF created with ...  
+LICEcap
 
 ## Notes
-
-Describe any challenges encountered while building the app.
 NA
+
 ## License
 
     Copyright [2024] [Jenny Zhang]
