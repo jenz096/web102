@@ -1,0 +1,45 @@
+/* Main layout for card section */
+.card-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Styling for individual cards */
+.card {
+  background-color: #3e3e6b;
+  padding: 30px 20px; /* More padding */
+  border-radius: 10px;
+  width: 200px; /* Wider cards */
+  min-height: 180px; /* Taller cards */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+}
+
+/* Text styling inside the cards */
+.card h2 {
+  font-size: 2rem; /* Larger font size for value */
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.card p {
+  font-size: 1.2rem; /* Larger font size for description */
+  color: #cfcfcf;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}
+.chart-section {
+  flex: 1; /* Take up available space on the right */
+  max-width: 400px; /* Optional: Limit chart width if desired */
+}

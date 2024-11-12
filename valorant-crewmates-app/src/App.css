@@ -1,0 +1,124 @@
+/* src/App.css */
+
+/* Main container to handle layout */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar styling for Navbar */
+.navbar {
+  width: 30%;
+  background-color: #0f1923; /* Dark blue-gray */
+  color: #ffffff;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar h2 {
+  color: #ff4655; /* Valorant red */
+  margin-bottom: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar li {
+  margin-bottom: 15px;
+}
+
+.navbar a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #ff4655; /* Valorant red on hover */
+}
+
+/* Main content styling */
+.main-content {
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  color: #ff4655;
+  font-weight: bold;
+}
+
+form input, form select {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #ff4655;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #d13c4d; /* Slightly darker red */
+}
+
+.crewmate-card {
+  border: 2px solid #ccc; /* Light gray border */
+  border-radius: 8px;     /* Rounded corners */
+  padding: 16px;          /* Spacing inside the card */
+  margin: 12px;           /* Spacing between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #2d2d2d; /* Dark background to match theme */
+  color: #ffffff; /* Text color */
+  text-align: center;
+}
+
+.crewmate-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.crewmate-card p {
+  font-size: 1em;
+  margin: 0.2em 0;
+}
+
+.crewmate-card button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.crewmate-card button:hover {
+  background-color: #555;
+}
